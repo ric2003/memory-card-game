@@ -1,12 +1,11 @@
-# React + Vite
+# Memory Card Game - Invincible Edition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based memory card game featuring characters from the Invincible animated series. Test your memory by clicking each character exactly once - but be careful not to click the same character twice!
 
-Currently, two official plugins are available:
+## 🎮 How to Play
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Click on any character card to select it
+- Each unique character you click increases your score
+- Cards shuffle after each click to make it more challenging
+- If you click the same character twice, the game resets
+- Try to achieve the highest score possible!
