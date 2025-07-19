@@ -5,13 +5,13 @@ const pics = [
     "allen_the_alien.png",
     "angstrom_levy.png",
     "Atom_Eve.png",
-    "battle_beast.png",
+    "battle_Beast.png",
     "conquest.png",
     "immortal.png",
     "Invincible.png",
     "Monster_Girl.png",
     "Omni-Man.png",
-    "rexsplode.png",
+    "rex_Splode.png",
     "robot.png",
     "Thragg.png",
     "anissa.png",
@@ -26,12 +26,20 @@ const pics = [
     "Multi_Pauls.png",
     "Oliver.png",
     "Sinclair.png",
-    "shrinking-rae.png",
+    "shrinking_Rae.png",
     "Thaedus.png",
     "thula.png",
     "vidor.png",
     "William.png"
   ];
+
+
+function preloadImages(imageList) {
+  imageList.forEach(imageName => {
+    const img = new Image();
+    img.src = `/imgs/${imageName}`;
+  });
+}
 
 function getPicName(pic) {
   let name = pic.split('.')[0];
@@ -77,6 +85,18 @@ function App() {
   const [score, setScore] = useState(0);
   const [picsSelected, setPicsSelected] = useState([]);
   const [shuffledPics, setShuffledPics] = useState([]);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  
+  useEffect(() => {
+    preloadImages(pics);
+    const timer = setTimeout(() => {
+      setImagesLoaded(true);
+      shufflePics(pics);
+    }, 10);
+    
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     shufflePics(pics);
   }, []);
@@ -129,6 +149,8 @@ function App() {
 
   return (
     <>
+    {imagesLoaded ? (
+      <>
     <div className="flex flex-row justify-between items-center h-[10vh]">
       <div className="flex flex-col px-16">
         <h1 className="text-4xl font-bold pt-4">GDA Classified Memory Test</h1>
@@ -142,6 +164,10 @@ function App() {
     <div className="gif-container">
       {picsList}
     </div>
+    </>
+    ) : (
+      <></>
+    )}
     </>
   );
 }
